@@ -37,9 +37,10 @@ class MainActivity : AppCompatActivity() {
                     .commit()
                 return@OnNavigationItemSelectedListener true
 
-                val gazouList= mutableListOf(1,2,3,4,5,6,7,8,9,10)
+                val gazouList= mutableListOf(
+                    gazou_1,gazou_2,gazou_3,gazou_4,gazou_5,gazou_6,gazou_7,gazou_8,gazou_9,gazou_10)
                 mGridAdapter.gazouList=gazouList
-                GridView
+                GridView.adapter=GridAdapter
             }
             R.id.navigation_dashboard ->{
                 supportFragmentManager.beginTransaction()
