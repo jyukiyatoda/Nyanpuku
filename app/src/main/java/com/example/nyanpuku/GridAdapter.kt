@@ -6,11 +6,21 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
-import kotlin.coroutines.coroutineContext
 
-class GridAdapter:BaseAdapter() {
+class GridAdapter(val context: Context) :BaseAdapter() {
     private val mLayoutInflater:LayoutInflater
-    var gazouList= mutableListOf<Int>()
+    var gazouList= mutableListOf<Int>(
+        R.drawable.gazou_1,
+        R.drawable.gazou_2,
+        R.drawable.gazou_3,
+        R.drawable.gazou_4,
+        R.drawable.gazou_5,
+        R.drawable.gazou_6,
+        R.drawable.gazou_7,
+        R.drawable.gazou_8,
+        R.drawable.gazou_9,
+        R.drawable.gazou_10
+    )
 
     init {
         this.mLayoutInflater= LayoutInflater.from(context)
@@ -31,9 +41,9 @@ class GridAdapter:BaseAdapter() {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
 
-        val view :View=convertView ?:mLayoutInflater.inflate(android.R.layout.fragment_zaisekicat,null)
-        ImageView view=(ImageView)view.findViewById(R.id.grid_item)
-        view.setImageBitmap(getItem(position))
+        val view :View=convertView ?:mLayoutInflater.inflate(R.layout.fragment_zaisekicat,null)
+        var imageView1=view.findViewById<ImageView>(R.id.grid_item)
+        imageView1.setImageResource(gazouList[position])
 
         return view
     }
