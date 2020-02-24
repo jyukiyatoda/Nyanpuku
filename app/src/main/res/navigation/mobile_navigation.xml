@@ -14,13 +14,13 @@
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.example.nyanpuku.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
+        android:label="Information"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/navigation_zaisekicat"
         android:name="com.example.nyanpuku.ui.zaisekicat.ZaisekicatFragment"
-        android:label="zaisekicat"
+        android:label="Cats"
         tools:layout="@layout/fragment_zaisekicat"/>
 
     <fragment

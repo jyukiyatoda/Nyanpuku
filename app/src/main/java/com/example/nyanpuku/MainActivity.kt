@@ -12,6 +12,7 @@ import com.example.nyanpuku.ui.dashboard.DashboardFragment
 import com.example.nyanpuku.ui.home.HomeFragment
 import com.example.nyanpuku.ui.notifications.NotificationsFragment
 import com.example.nyanpuku.ui.zaisekicat.ZaisekicatFragment
+import kotlinx.android.synthetic.main.fragment_zaisekicat.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -37,8 +38,8 @@ class MainActivity : AppCompatActivity() {
                     .commit()
                 return@OnNavigationItemSelectedListener true
 
-                GridView gridview=(GridView)findViewId(R.id.gridview)
-                GridView.setadapter=GridAdapter
+                val gridView:GridView=findViewById(R.id.gridview)
+                gridview.adapter=mGridAdapter
             }
             R.id.navigation_dashboard ->{
                 supportFragmentManager.beginTransaction()
