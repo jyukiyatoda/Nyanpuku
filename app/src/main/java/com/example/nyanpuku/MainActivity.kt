@@ -1,5 +1,6 @@
 package com.example.nyanpuku
 
+import android.content.Context
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
@@ -14,9 +15,8 @@ import com.example.nyanpuku.ui.notifications.NotificationsFragment
 import com.example.nyanpuku.ui.zaisekicat.ZaisekicatFragment
 import kotlinx.android.synthetic.main.fragment_zaisekicat.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity(val context: Context) : AppCompatActivity() {
 
-    private lateinit var mGridAdapter: GridAdapter
 
     private val mOnNavigationItemSelectedListener=BottomNavigationView.OnNavigationItemSelectedListener{ item ->
         when(item.itemId){
@@ -38,8 +38,7 @@ class MainActivity : AppCompatActivity() {
                     .commit()
                 return@OnNavigationItemSelectedListener true
 
-                val gridView:GridView=findViewById(R.id.gridview)
-                gridview.adapter=mGridAdapter
+
             }
             R.id.navigation_dashboard ->{
                 supportFragmentManager.beginTransaction()
@@ -60,8 +59,27 @@ class MainActivity : AppCompatActivity() {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(setOf(
-            R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications))
+            R.id.navigation_home, R.id.navigation_dashboard,R.id.navigation_zaisekicat, R.id.navigation_notifications))
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+
+
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+        val eachnavigation=BottomNavigationView.OnNavigationItemSelectedListener{ item ->
+            when(item.itemId) {
+                R.id.navigation_zaisekicat -> {
+                    //GridViewのインスタンス生成
+                    val gridView: GridView = findViewById(R.id.gridview)
+                    var mGridAdapter=GridAdapter(context)
+                    gridview.adapter = mGridAdapter
+                  }
+            }
+                false
+        }
+
+
     }
+
+
 }
