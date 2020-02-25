@@ -13,6 +13,7 @@ import com.example.nyanpuku.ui.dashboard.DashboardFragment
 import com.example.nyanpuku.ui.home.HomeFragment
 import com.example.nyanpuku.ui.notifications.NotificationsFragment
 import com.example.nyanpuku.ui.zaisekicat.ZaisekicatFragment
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_zaisekicat.*
 
 class MainActivity(val context: Context) : AppCompatActivity() {
@@ -64,14 +65,13 @@ class MainActivity(val context: Context) : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
 
-
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+        var mGridAdapter=GridAdapter(context)
+        nav_view.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         val eachnavigation=BottomNavigationView.OnNavigationItemSelectedListener{ item ->
             when(item.itemId) {
                 R.id.navigation_zaisekicat -> {
                     //GridViewのインスタンス生成
                     val gridView: GridView = findViewById(R.id.gridview)
-                    var mGridAdapter=GridAdapter(context)
                     gridview.adapter = mGridAdapter
                   }
             }
