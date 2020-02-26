@@ -16,7 +16,7 @@ import com.example.nyanpuku.ui.zaisekicat.ZaisekicatFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_zaisekicat.*
 
-class MainActivity(val context: Context) : AppCompatActivity() {
+class MainActivity() : AppCompatActivity() {
 
 
     private val mOnNavigationItemSelectedListener=BottomNavigationView.OnNavigationItemSelectedListener{ item ->
@@ -51,6 +51,7 @@ class MainActivity(val context: Context) : AppCompatActivity() {
         false
     }
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -65,13 +66,15 @@ class MainActivity(val context: Context) : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
 
-        var mGridAdapter=GridAdapter(context)
+
+        var mGridAdapter=GridAdapter()
         nav_view.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         val eachnavigation=BottomNavigationView.OnNavigationItemSelectedListener{ item ->
             when(item.itemId) {
                 R.id.navigation_zaisekicat -> {
                     //GridViewのインスタンス生成
                     val gridView: GridView = findViewById(R.id.gridview)
+                    //GridviewにGridAdapterをセット
                     gridview.adapter = mGridAdapter
                   }
             }

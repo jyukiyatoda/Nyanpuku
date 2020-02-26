@@ -32,6 +32,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/mobile_navigation" />
 
+    <GridView
+        android:id="@+id/gri_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:horizontalSpacing="1dp"
+        android:verticalSpacing="1dp"
+        android:numColumns="2"
+        android:stretchMode="columnWidth"/>
     <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
