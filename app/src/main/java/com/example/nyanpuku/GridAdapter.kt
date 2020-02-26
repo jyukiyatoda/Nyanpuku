@@ -8,7 +8,7 @@ import android.widget.BaseAdapter
 import android.widget.ImageView
 
 class GridAdapter(val context: Context) :BaseAdapter() {
-    private val mLayoutInflater:LayoutInflater
+    val mLayoutInflater:LayoutInflater=LayoutInflater.from(context)
     var gazouList= mutableListOf<Int>(
         R.drawable.gazou_1,
         R.drawable.gazou_2,
@@ -22,9 +22,7 @@ class GridAdapter(val context: Context) :BaseAdapter() {
         R.drawable.gazou_10
     )
 
-    init {
-        this.mLayoutInflater= LayoutInflater.from(context)
-    }
+
 
 
     override fun getCount(): Int {
@@ -49,3 +47,6 @@ class GridAdapter(val context: Context) :BaseAdapter() {
         return view
     }
 }
+
+
+

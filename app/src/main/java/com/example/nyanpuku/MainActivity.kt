@@ -64,23 +64,6 @@ class MainActivity() : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-
-
-        var mGridAdapter=GridAdapter(this)
-        nav_view.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
-        val eachnavigation=BottomNavigationView.OnNavigationItemSelectedListener{ item ->
-            when(item.itemId) {
-                R.id.navigation_zaisekicat -> {
-                    //GridViewのインスタンス生成
-                    val gridView: GridView = findViewById(R.id.gridview)
-                    //GridviewにGridAdapterをセット
-                    gridview.adapter = mGridAdapter
-                  }
-            }
-                false
-        }
-
-
     }
 
 
