@@ -7,12 +7,8 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
 
-class GridAdapter() :BaseAdapter() {
+class GridAdapter(val context: Context) :BaseAdapter() {
     private val mLayoutInflater:LayoutInflater
-    var context:Context ?=null
-    fun initialize(context: Context){
-        this.context=context
-    }
     var gazouList= mutableListOf<Int>(
         R.drawable.gazou_1,
         R.drawable.gazou_2,

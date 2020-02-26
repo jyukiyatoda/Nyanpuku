@@ -1,6 +1,5 @@
 package com.example.nyanpuku
 
-import android.content.Context
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
@@ -67,7 +66,7 @@ class MainActivity() : AppCompatActivity() {
 
 
 
-        var mGridAdapter=GridAdapter()
+        var mGridAdapter=GridAdapter(this)
         nav_view.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         val eachnavigation=BottomNavigationView.OnNavigationItemSelectedListener{ item ->
             when(item.itemId) {
