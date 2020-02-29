@@ -34,6 +34,7 @@ class ZaisekicatFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //Adapter生成
         var mGridAdapter = GridAdapter(context!!)
         //GridViewのインスタンス生成
         val gridView: GridView = view.findViewById(R.id.gridview)

@@ -40,7 +40,7 @@ class GridAdapter(val context: Context) :BaseAdapter() {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
 
-        val view :View=convertView ?:mLayoutInflater.inflate(R.layout.fragment_zaisekicat,null)
+        val view :View=convertView ?:mLayoutInflater.inflate(R.layout.grid_item,null)
         var imageView1=view.findViewById<ImageView>(R.id.grid_item)
         imageView1.setImageResource(gazouList[position])
 
