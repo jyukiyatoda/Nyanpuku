@@ -17,6 +17,20 @@ import com.example.nyanpuku.SubActivity
 class NotificationsFragment : Fragment() {
 
     private lateinit var notificationsViewModel: NotificationsViewModel
+    var mozisub= mutableListOf<String>(
+        "新着情報はありません",
+        "新着情報はありません",
+        "新着情報はありません",
+        "新着情報はありません",
+        "新着情報はありません"
+    )
+    var photosub= mutableListOf<Int>(
+        R.drawable.jiji,
+        R.drawable.nico,
+        R.drawable.jiji,
+        R.drawable.nico,
+        R.drawable.jiji
+    )
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -48,15 +62,13 @@ class NotificationsFragment : Fragment() {
 
 
         //リストビューのアイテムクリック時の挙動
-        listView.setOnItemClickListener({ adapterView: AdapterView<*>, view1: View, i: Int, l: Long ->
+        listView.setOnItemClickListener({ adapterView: AdapterView<*>, view1: View, position: Int, l: Long ->
 
                     //インテントのインスタンス生成
                     val intent=Intent(getActivity(), SubActivity::class.java)
                     //クリックされたPositionのtextとphotoのID
-                    val getmozi=ListViewAdapter::mozi
-                    val getphots=ListViewAdapter::phots
-                    var selectedText: MutableList<String> =getmozi[position]
-                    var selrctedPhoto:MutableList<Int> =getphots[position]
+                    var selectedText: String =mozisub[position]
+                    var selrctedPhoto:Int=photosub[position]
             //インテントにセット
             intent.putExtra("Text",selectedText)
             intent.putExtra("Photo",selrctedPhoto)
